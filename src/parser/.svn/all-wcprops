@@ -1,0 +1,59 @@
+K 25
+svn:wc:ra_dav:version-url
+V 49
+/svn/!svn/ver/27/branches/minjavac_ext/src/parser
+END
+Token.java
+K 25
+svn:wc:ra_dav:version-url
+V 60
+/svn/!svn/ver/18/branches/minjavac_ext/src/parser/Token.java
+END
+TokenMgrError.java
+K 25
+svn:wc:ra_dav:version-url
+V 68
+/svn/!svn/ver/18/branches/minjavac_ext/src/parser/TokenMgrError.java
+END
+SimpleCharStream.java
+K 25
+svn:wc:ra_dav:version-url
+V 71
+/svn/!svn/ver/18/branches/minjavac_ext/src/parser/SimpleCharStream.java
+END
+ParserTokenManager.java
+K 25
+svn:wc:ra_dav:version-url
+V 73
+/svn/!svn/ver/72/branches/minjavac_ext/src/parser/ParserTokenManager.java
+END
+ParseException.java
+K 25
+svn:wc:ra_dav:version-url
+V 69
+/svn/!svn/ver/18/branches/minjavac_ext/src/parser/ParseException.java
+END
+ParserConstants.java
+K 25
+svn:wc:ra_dav:version-url
+V 70
+/svn/!svn/ver/72/branches/minjavac_ext/src/parser/ParserConstants.java
+END
+ManualParser.java
+K 25
+svn:wc:ra_dav:version-url
+V 67
+/svn/!svn/ver/66/branches/minjavac_ext/src/parser/ManualParser.java
+END
+Parser.java
+K 25
+svn:wc:ra_dav:version-url
+V 61
+/svn/!svn/ver/75/branches/minjavac_ext/src/parser/Parser.java
+END
+Parser.jj
+K 25
+svn:wc:ra_dav:version-url
+V 59
+/svn/!svn/ver/75/branches/minjavac_ext/src/parser/Parser.jj
+END

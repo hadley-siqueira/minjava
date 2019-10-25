@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html class="google ng-scope gr__code_google_com" ng-app="codesiteArchive.application" lang="en"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta content="initial-scale=1, minimum-scale=1, width=device-width" name="viewport">
+
+    <!-- https://developers.google.com/webmasters/ajax-crawling/docs/specification -->
+    <meta name="fragment" content="!">
+    <title>Google Code Archive - Long-term storage for Google Code Project Hosting.</title>
+
+    <link rel="icon" type="image/vnd.microsoft.icon" href="https://code.google.com/archive/img/project-hosting.ico">
+    <script src="index_files/google.js"></script>
+    <link href="index_files/maia.css" rel="stylesheet">
+    <link href="index_files/css.css" rel="stylesheet">
+    <link rel="stylesheet" href="index_files/archive_css.css">
+    <script>
+      CLOSURE_NO_DEPS = true;
+    </script>
+    <script src="index_files/angular.js"></script><style type="text/css">@charset "UTF-8";
+
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak],
+.ng-cloak, .x-ng-cloak,
+.ng-hide:not(.ng-hide-animate) {
+  display: none !important;
+}
+
+ng\:form {
+  display: block;
+}
+
+.ng-animate-shim {
+  visibility:hidden;
+}
+
+.ng-anchor {
+  position:absolute;
+}
+</style>
+    <script src="index_files/pagedown.js"></script>
+    <script src="index_files/archive.js"></script>
+    <!-- base href="https://code.google.com/archive/" -->
+  </head>
+
+  <body data-gr-c-s-loaded="true">
+    <div class="maia-header" id="maia-header" role="banner">
+      <div class="maia-aux">
+        <a href="https://code.google.com/archive/">
+          </a><h1><a href="https://code.google.com/archive/">
+            <img alt="Google" src="index_files/googlelogo_color_116x41dp.png"> Code</a>
+          </h1>
+        
+        <a href="https://code.google.com/archive/">
+          <h2>Archive</h2>
+        </a>
+        <a class="maia-teleport" href="#content">Skip to content</a>
+        <div class="maia-util">
+          <form action="/archive/search" class="maia-search ng-pristine ng-valid">
+            <input name="q" placeholder="Search this site" type="text">
+            <button class="maia-button">
+              <span class="maia-search-icon">Search</span>
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <!-- ngView: --><div ng-view="" class="ng-scope"><div ng-controller="ProjectHomepageCtrl as projectCtrl" class="ng-scope">
+<nav-bar-widget nav-level-1="projectCtrl.navLevel1" class="ng-isolate-scope"><div class="maia-nav maia-complex" id="maia-nav-x" role="navigation">
+  <div class="maia-aux">
+    <ul>
+      <li ng-class="{active: navLevel1 == 'projects'}" class="active">
+        <a href="https://code.google.com/archive/">Projects</a>
+        <!-- ngIf: navLevel2 -->
+      </li>
+      <li ng-class="{active: navLevel1 == 'search'}">
+        <a href="https://code.google.com/archive/search">Search</a>
+      </li>
+      <li ng-class="{active: navLevel1 == 'about'}">
+        <a href="https://code.google.com/archive/about">About</a>
+      </li>
+    </ul>
+  </div>
+</div>
+</nav-bar-widget>
+<div id="maia-main" role="main">
+
+  <!-- Left-side resource nav -->
+  <span ng-hide="projectCtrl.project.notFound">
+    <project-resources-widget domain="projectCtrl.domain" project="projectCtrl.projectName" class="ng-isolate-scope"><div class="maia-nav" id="maia-nav-y" role="navigation">
+  <!-- ngIf: domain == 'code.google.com' --><ul ng-if="domain == 'code.google.com'" class="ng-scope">
+    <li class="active">
+      <a href="https://code.google.com/archive/p/minjavac/">Project</a>
+    </li>
+    <li>
+      <a href="https://code.google.com/archive/p/minjavac/source">Source</a>
+    </li>
+    <li>
+      <a href="https://code.google.com/archive/p/minjavac/issues">Issues</a>
+    </li>
+    <li>
+      <a href="https://code.google.com/archive/p/minjavac/wikis">Wikis</a>
+    </li>
+    <li>
+      <a href="https://code.google.com/archive/p/minjavac/downloads">Downloads</a>
+    </li>
+  </ul><!-- end ngIf: domain == 'code.google.com' -->
+
+    <!-- ngIf: domain != 'code.google.com' -->
+</div></project-resources-widget>
+  </span>
+
+  <div class="maia-article" role="article">
+    <div class="maia-teleport" id="content"></div>
+    <div class="maia-cols">
+
+      <!-- BUG: We show "no issues" and relaged sub-pages for projects that
+           do not exist. Similarly, if you go to page 1,000,000 it says the
+           project has no issues, despite page 999,999 existing. -->
+      <!-- ngIf: projectCtrl.project.notFound -->
+
+      <div ng-hide="projectCtrl.project.notFound" id="gca-project-header" class="maia-col-10">
+        <img class="gca-project-logo" src="index_files/logo.png">
+        <h1 class="ng-binding">minjavac</h1>
+      </div>
+
+      <div ng-hide="projectCtrl.project.notFound" class="maia-col-10">
+        <hr>
+
+        <!-- ngIf: projectCtrl.error -->
+
+        <!-- Switch by project resource -->
+        <!-- ngIf: !projectCtrl.error --><div ng-if="!projectCtrl.error" ng-switch="projectCtrl.resource" class="ng-scope">
+
+          <!-- Project -->
+          <!-- ngSwitchWhen: project --><div ng-switch-when="project" class="ng-scope">
+            <!-- ngIf: projectCtrl.project == null -->
+
+            <!-- ngIf: projectCtrl.project.notFound -->
+
+            <!-- ngIf: projectCtrl.project.found --><div ng-if="projectCtrl.project.found" class="ng-scope">
+              <div class="maia-col-6">
+                <p class="maia-meta ng-binding">MiniJava compiler</p>
+                <markdown-widget text="projectCtrl.project.description" class="markdown"><h1>MinJavaC</h1>
+
+<p>MinJavaC é um compilador conceito para a linguagem <a href="http://www.cambridge.org/us/features/052182060X/index.html">MiniJava</a>, escrito em Java. Um projeto da disciplina DIM0406 - Compiladores (UFRN), sob orientação do Prof. Marcelo Siqueira.</p>
+
+<h2>Objetivos</h2>
+
+<p>O design da linguagem MiniJava, um projeto externo já existente, foi 
+feito cuidadosamente para o estudo da teoria e implementação de 
+compiladores em Java. Seu escopo é reduzido o bastante para que um 
+compilador da linguagem, voltado à uma arquitetura comum, possa ser 
+feito ao longo da duração de um curso normal de 1 semestre. Mesmo assim,
+ tal trabalho toca em diversos pontos essenciais da construção de 
+compiladores e serve como uma base teórica para mais estudos na 
+construção de compiladores reais.</p>
+
+<p>Com o MinJavaC, esta base foi aproveitada e foi possível unir a isto o estudo da arquitetura x86-32, e a máquina virtual JVM.</p>
+
+<h2>O Compilador</h2>
+
+<p>O compilador foi desenvolvido na linguagem Java, tendo como base para
+ o front-end (parser, symboltable e typechecker) a arquitetura de 
+Visitors apresentada <a href="http://www.cambridge.org/us/features/052182060X/index.html">aqui</a>. Seu código fonte está disponível publicamente sobre a GPLv2, <a href="http://code.google.com/p/minjavac/source/checkout">neste repositório</a>. Um pacote zip com o compilador, referente a uma revisão recente do repositório, está disponível <a href="http://code.google.com/p/minjavac/downloads/list">aqui</a>.</p>
+
+<p>O MinJavaC apresenta uma escolha entre dois backends para a geração do código final: <em>NASM</em> ou <em>JVM</em>.</p>
+
+<p>A execução se dá da seguinte maneira:</p>
+
+<p><code>
+  java minjavac &lt;source_name&gt;.java [-backend (nasm | jvm)]
+</code></p>
+
+<p>Caso o backend não seja especificado, o default será o nasm. No 
+backend nasm, a linha acima gera um executável de nome source_name. No 
+backend jvm, a invocação cria um arquivo .class para cada classe 
+declarada no fonte. Estes arquivos, então, podem ser executados na JVM (<code>java Classe</code>).</p>
+
+<p>O arquivo de texto config.txt distribuído junto com o compilador é 
+utilizado para indicar os caminhos das ferramentas jasmin.jar e nasm 
+(assemblers para bytecode jvm e assembly x86), que serão explicadas nas 
+seções seguintes.</p>
+
+<h2>A Linguagem</h2>
+
+<p>A linguagem fonte do compilador consiste de algumas adições feitas em cima do projeto inicial da MiniJava (<a href="http://www.cambridge.org/us/features/052182060X/grammar.html">BNF grammar</a>).</p>
+
+<p>A estrutura básica de um código-fonte em MiniJava pode ser vista com este exemplo:</p>
+
+<p>```
+class Factorial {
+  public static void main(String[] a) {
+    System.out.println(new Fac().ComputeFac(10));
+  }
+}</p>
+
+<p>class Fac {
+  public int ComputeFac(int num) {
+    int num_aux;</p>
+
+<pre><code>if (num &lt; 1) {
+  num_aux = 1;
+} else {
+  num_aux = num * (this.ComputeFac(num - 1));
+}
+return num_aux;
+</code></pre>
+
+<p>}
+}
+```</p>
+
+<p>A primeira classe é sempre considerada a principal. Esta só contêm um
+ método, que será o ponto de partida do programa. Além desta classe, o 
+código fonte pode contar outras classes logo abaixo. Note que o 
+significado de um programa MiniJava é dado pelo seu significado caso ele
+ seja interpretado como um programa Java. Isto é, MiniJava é um 
+subconjunto de Java, compartilhando sua semântica.</p>
+
+<h3>Modificações</h3>
+
+<p>O projeto original da MiniJava contêm diversas restrições (com 
+relação à Java) para tornar o seu uso mais fácil, didaticamente. Algumas
+ destas restrições fazem com que a linguagem não seja realmente 
+considerada "real". Isto é, certas restrições que tornam a vida do 
+programador <em>muito</em> mais difícil, enquanto facilitam só um pouco a vida do implementador.</p>
+
+<p>Tendo isto em mente, o escopo inicial da linguagem teve as seguintes adições:</p>
+
+<ul>
+<li><p><em>Strings</em>: Suporte à impressão na saída padrão de strings 
+literais, com o intuito de facilitar o processo de debug de um programa 
+MiniJava. Exemplo:
+<code>
+public static void main(String[] a) {
+System.out.print("Statement A");
+}
+</code></p></li>
+<li><p><em>Main</em>: Relaxamento das restrições nos statements 
+presentes no método main. O projeto original impôe que o método main só 
+contêm uma instrução System.out.println. Exemplo:
+<code>
+class VTTest {
+public static void main(String[] args) {
+Tester t = new Tester();
+t.test(new A());
+t.test(new B());
+}
+}
+</code></p></li>
+<li><p><em>Declarações</em>: Possibilidade de declarações de múltiplas variáveis de um mesmo tipo numa mesma unidade, assim como inicialização. Exemplo:
+<code>
+int x, y = 3, z = y + 1;
+int[] v = new int[30];
+</code></p></li>
+<li><p><em>For</em>: Adição do comando for tradicional. Exemplo:
+<code>
+for (b = 0, a = 10; b &lt;= a; b = b + 1, a = a - 1) {
+System.out.println(b);
+}
+</code></p></li>
+<li><p><em>Aritmética</em>: Adição da operação de divisão, assim como o comando de atribuição composto. Exemplo:
+<code>
+public static void main(String[] args) {
+a = 20;
+b = 2;
+System.out.println(a/b);
+a += 4;
+a -= 2;
+b *= 2;
+++a;
+System.out.println(a++);
+System.out.println(++b);
+System.out.println(a);
+}
+</code></p></li>
+<li><p><em>Operadores booleanos</em>: O projeto original só contava com a
+ comparação "menor que" (&lt;) e o "and" lógico (&amp;&amp;). Foram 
+adicionados: &lt;=, &gt;, &gt;=, ==, !=, || (com os significados usuais 
+vistos em Java).</p></li>
+<li><p><em>Chamada de método</em>: A gramática original contêm 
+restrições rígidas para chamadas de método. Entre elas: uma chamada de 
+método não é um comando (somente uma expressão) e métodos na classe 
+atual precisam de this explícito na chamada (this.metodo()). Tais 
+restrições foram removidas. Exemplo:
+```
+methodA();
+obj.methodB(i, j, k);</p></li>
+</ul>
+
+<p>if (methodC(2)) {
+}
+else {
+}
+```</p>
+
+<ul>
+<li><em>Incremento / decremento</em>: Adição de expressões tais como: ++x, --y, x++, y--. Também podem ser usadas como comandos. Exemplo:
+<code>
+for (x = 0; x &lt;= y; ++x, --y) { }
+</code></li>
+</ul>
+
+<h2>JVM</h2>
+
+<p>O backend JVM é responsável pela tradução de programas MiniJava para o
+ bytecode interpretado pela máquina virtual Java tradicional. Esta 
+tradução não é direta. O MinJavaC gera uma representação textual do 
+arquivo .class correspondente ao código fonte MiniJava, em ASCII puro. 
+Este arquivo de texto tem um mapeamento 1 : 1 com o bytecode final. A 
+partir daí, uma ferramenta externa, denominada <a href="http://jasmin.sourceforge.net/">Jasmin</a>, traduz o arquivo de texto para o arquivo binário .class esperado pela máquina virtual.</p>
+
+<p>Como exemplo, considere a classe:
+```
+class Fac {
+  public int ComputeFac(int num) {
+    int num_aux;</p>
+
+<pre><code>if (num &lt; 1)
+  num_aux = 1;
+else
+  num_aux = num * ComputeFac(num - 1);
+
+return num_aux;
+</code></pre>
+
+<p>}
+}
+```</p>
+
+<p>Um trecho do assembly respectivo segue abaixo:
+```
+.class public Fac
+.super java/lang/Object</p>
+
+<p>.method public ()V
+   aload_0
+   invokenonvirtual java/lang/Object/()V
+   return
+.end method</p>
+
+<p>.method public ComputeFac(I)I
+.limit locals 4</p>
+
+<p>iload_1
+   iconst_1
+   if_icmplt if_true
+   goto if_false</p>
+
+<p>if_true:
+   iconst_1
+   istore_2
+   goto if_next</p>
+
+<p>if_false:
+   iload_1
+   aload_0
+   iload_1
+   iconst_1
+   isub
+   invokevirtual Fac/ComputeFac(I)I
+   imul
+   istore_2</p>
+
+<p>if_next:
+   iload_2
+   ireturn</p>
+
+<p>.limit stack 4
+.end method
+```</p>
+
+<p>Note que os bytecodes foram projetados especialmente para a linguagem
+ Java, e por isso são um mapeamento fácil vindo da MiniJava (embora 
+dificulte bastante o trabalho de implementadores de outras linguagens 
+para a JVM).</p>
+
+<p>A implementação deste backend foi a mais simples, consistindo 
+essencialmente de um Visitor na AST do programa, realizando uma percurso
+ pós-ordem generalizado (uma boa solução para a geração de código alvo 
+para máquinas de pilha, como a JVM).</p>
+
+<h2>NASM</h2>
+
+<p>O backend NASM compôe a maior parte da base de código do MinJavaC. 
+Ele é responsável pela geração de código executável para plataformas x86
+ (32 bits). Ele trabalha gerando um arquivo assembly em formato textual e
+ utilizando o assembler <a href="http://en.wikipedia.org/wiki/Netwide_Assembler">NASM</a>.</p>
+
+<h3>Representação Intermediária</h3>
+
+<p>Devido a sua complexidade, este componente não faz uma tradução direta. Ele primeiro gera código intermediário sob a forma de <a href="http://en.wikipedia.org/wiki/Three_address_code">Three address code</a>.</p>
+
+<p>O código não é explicitamente mostrado ao usuário, só existe na forma
+ de estruturas de dados especiais na memória do compilador. Um exemplo 
+de parte do código intermediário para o programa Factorial seria:
+```
+class Fac:
+procedure Fac@ComputeFac
+   if greater_or_equal(num, 1) goto .if_false;</p>
+
+<p>num_aux := 1;
+   goto .if_next;</p>
+
+<p>.if_false:
+   save_context;
+   .new_Fac := call Fac@@new;
+   load_context;
+   f := .new_Fac;
+   save_context;
+   .sub := sub num, 1;
+   param .sub;
+   param f;
+   .call := call Fac@ComputeFac;
+   load_context;
+   .mult := mult num, .call;
+   num_aux := .mult;</p>
+
+<p>.if_next:
+   return num_aux;
+end
+end
+```</p>
+
+<p>Em cima desta representação, foram implementadas algumas otimizações básicas. Elas funcionam tomando como base os <a href="http://en.wikipedia.org/wiki/Basic_block">blocos básicos</a> de um procedimento, e fazendo uma análise em cima deles.</p>
+
+<ul>
+<li><p><em>Reescrita de instruções</em>: Algumas instruções são reescritas para diminuir a complexidade do código gerado, sempre que possível. Exemplo:
+<code>
+goto L;  // elimina o goto
+L:
+</code></p></li>
+<li><p><em>Análise de vida</em> : O compilador realiza uma <a href="http://en.wikipedia.org/wiki/Live_variable_analysis">análise de vida das variáveis</a> simplificada. Ela trabalha montando o <a href="http://en.wikipedia.org/wiki/Control_flow_graph">grafo de fluxo de controle</a> do procedimento atual. Estas informações serão utilizadas na geração de código.</p>
+
+<ol><li>Primeiramente, monta o grafo considerando os nós como sendo os 
+blocos básicos, e as arestas como o fluxo do programa (jumps entre 
+blocos e blocos executados sequencialmente).</li>
+<li>Isto é feito para calcular, para cada bloco básico, utilizando uma 
+busca no grafo, o conjunto de variáveis vivas na saída daquele bloco. 
+Isto é, o conjunto das variáveis que necessitam ter o seu valor 
+armazenado na memória ao fim daquele bloco.</li>
+<li>O pseudo-código correspondente seria: Para cada variável <code>V</code> que é escrita no bloco atual <code>B1</code>: caso exista um caminho de <code>B1</code> para <code>B2</code> no grafo de fluxo tal que <code>V</code> seja lida em <code>B2</code>, e antes disso não houve nenhuma escrita em <code>V</code> (isto é, o valor de <code>V</code> será o que foi determinado em <code>B1</code>), considera-se que <code>V</code> é uma variável viva na saída de <code>B1</code>.</li></ol></li>
+</ul>
+
+<h3>Geração de código</h3>
+
+<p>A partir da representação intermediária gerada na fase anterior, 
+assim como as informações da tabela de símbolos que foram coletadas no 
+início da análise semântica, é realizada a geração de código final.</p>
+
+<p>Para a geração de código e a alocação de registradores, foi utilizado um algoritmo descrito no <a href="http://www.amazon.com/Compilers-Principles-Techniques-Alfred-Aho/dp/0201100886">Dragon Book</a>.</p>
+
+Mapeamento MiniJava -&gt; código de máquina
+
+<p>O mapeamento utilizado foi baseado em uma adaptação do modelo utilizado pelo C++ em tempo de execução. Têm-se:</p>
+
+<ul>
+<li><p>Os objetos são representados como blocos de dados contíguos, 
+contendo os seus campos (representados por offsets a partir do endereço 
+base do objeto), como uma struct do C++.</p></li>
+<li><p>Métodos são procedimentos normais que esperam um parâmetro 
+implícito, sendo este um ponteiro para o objeto no qual o método está 
+sendo chamado (<em>this</em>).</p></li>
+<li><p>Os arrays são representados como em C, porém sempre com um 
+elemento à mais. Este elemento, considerado sempre na posição 0, guarda o
+ tamanho do array. Ele é necessário pois o método .length do MiniJava 
+requer a determinação do tamanho de um array alocado em tempo de 
+execução. Exemplo:
+<code>
+int[] x, y;
+x = new int[30];
+y = x;
+System.out.println(y.length);
+</code></p></li>
+<li><p>Para implementar polimorfismo real (com despacho dinâmico), foi utilizado o esquema de <a href="http://en.wikipedia.org/wiki/Virtual_method_table">Virtual tables</a>.
+ Cada objeto guarda um ponteiro para a tabela correspondente a sua 
+classe, contendo os endereços de todos os métodos acessíveis por ele.</p></li>
+<li><p>A convenção de chamada utilizada é uma adaptação da <a href="http://en.wikipedia.org/wiki/X86_calling_conventions#thiscall">ThisCall</a>. A diferença é que o ponteiro this é passado no registrador <code>%edx</code>, em vez de na pilha (facilita um pouco a implementação).</p></li>
+</ul>
+
+Algoritmo de tradução
+
+<p>O algoritmo de tradução utilizado trabalha em cada bloco básico 
+separadamente. Assume que as definições de labels dos procedimentos, 
+endereços de constantes e as tabelas virtuais já estão prontas.</p>
+
+<ul>
+<li><p>Primeiramente, ele atribui a cada variável (seja ela local ao 
+procedimento ou uma temporária necessária na avaliação de alguma 
+expressão) um local na pilha. Isto é, faz uma alocação de pior caso. É 
+mais ineficiente, em termos de memória, porém mais simples em termos de 
+implementação.</p></li>
+<li><p>Ao seguir na geração, são mantidos dois conjuntos de descritores.
+ Os descritores de registrador guardam, para cada registrador, o 
+conjunto das variáveis cujos valores estão presentes nele. E os 
+descritores de variáveis, que guardam para cada variável, duas 
+informações: o conjunto de registradores que contêm o seu valor correto,
+ e se a sua posição na memória está consistente com o seu valor (o valor
+ atual pode estar guardado somente em registradores).</p></li>
+<li><p>Assim, para cada instrução de 3 endereços, são feitas operações 
+básicas, tais como carregar valores em registradores, alocar 
+registradores para receber valores de operações, etc. A cada operação 
+básica, o conjunto de descritores é atualizado de acordo.</p></li>
+<li><p>As operações básicas impôem certas restrições. Por exemplo: Caso o
+ registrador R tenha que receber o valor da variável V, porém R é o 
+único local com o valor atual de V', uma instrução mov será emitida, 
+guardando o valor de V' na memória antes que seja apagado.</p></li>
+<li><p>Isto permite certas otimizações também, tais como reutilizar 
+registradores com valores conhecidos de variáveis, sem precisar recorrer
+ a memória</p></li>
+<li><p>Ao final do bloco básico, para todas as variáveis consideradas 
+vivas na saída daquele bloco (isto foi determinado na fase anterior), 
+seus valores são atualizados na memória de acordo.</p></li>
+</ul>
+
+<p>Este algoritmo é um melhoramento com relação ao algoritmo mais 
+simples possível, e gera código de qualidade razoável. É possível 
+observar várias possíveis otimizações possíveis no assembly final, mas 
+que não podem ser tão facilmente determinadas no código do compilador.</p>
+
+<h3>C runtime</h3>
+
+<p>O código gerado pelo compilador segue, então, a sintaxe do NASM. Segue um trecho do assembly gerado para o <a href="http://paste.pocoo.org/show/152347/">Factorial.nasm</a>:
+```
+; constructors
+segment .text</p>
+
+<p>Factorial@@new:
+   push dword 4
+   call _alloc
+   add esp, 4
+   mov [eax+0], dword Factorial@@vt
+   ret</p>
+
+<p>Fac@@new:
+   push dword 4
+   call _alloc
+   add esp, 4
+   mov [eax+0], dword Fac@@vt
+   ret</p>
+
+<p>; code
+segment .text</p>
+
+<p>Factorial@main:
+   push ebp
+   mov ebp, esp
+   sub esp, 28</p>
+
+<p>push edx
+   call Fac@@new
+   pop edx
+   push edx
+   push dword 10
+   mov edx, eax
+   mov esi, [edx]
+   call [esi+4]
+   add esp, 4
+   pop edx
+   push edx
+   push eax
+   call _print_int
+   add esp, 4
+   pop edx
+   push edx
+   call Fac@@new
+   pop edx
+   push edx
+   push dword 10
+   mov edx, eax
+   mov esi, [edx]
+   call [esi+0]
+   add esp, 4
+   pop edx
+   push edx
+   push eax
+   call _print_int
+   add esp, 4
+   pop edx</p>
+
+<p>mov esp, ebp
+   pop ebp
+   ret
+```</p>
+
+<p>Este código precisa fazer chamadas à funções do sistema operacional, 
+tais como: escrever em arquivos (para imprimir na saída padrão), alocar 
+espaço da heap, etc. Para manter o código portável, estas funções são 
+chamadas a partir da biblioteca padrão C, que é implementada em diversos
+ sistemas diferentes.</p>
+
+<p>Esta decisão faz com que o código objeto gerado pelo NASM tenha que ser linkado junto à código C, cujo um trecho segue à seguir:
+```</p>
+
+<h1>include </h1>
+
+<h1>include </h1>
+
+<p>void* alloc(int size) {
+  return malloc(size);
+}</p>
+
+<p>int* new_array(int size) {
+  int* array = (int*)alloc(4*(size+1));
+  array[0] = size;
+  return array;
+}</p>
+
+<p>void print_int(int n) {
+  printf("%d\n", n);
+}
+```</p>
+
+<h2>Bugs, testes, contribuições</h2>
+
+<p>O compilador vem sendo testado com os programas disponíveis na página do projeto do <a href="http://www.cambridge.org/us/features/052182060X/index.html">MiniJava</a>.
+ Na revisão mais recente, ambos os backends passam em todos os testes 
+utilizados. Mesmo assim, o código ainda pode conter bugs. Qualquer bug 
+pode ser reportado para <code>giulianoxt@gmail.com</code>. Qualquer contribuição ou idéia nova para implementação no compilador também será bem vinda.</p></markdown-widget>
+              </div>
+              <div id="gca-project-info-box" class="maia-col-4">
+                <div class="maia-aside">
+                  <h1>Project Information</h1>
+                  <!-- ngIf: projectCtrl.project.creationTime -->
+                  <!-- ngIf: projectCtrl.project.ancestorRepo -->
+                  <ul>
+                    <li>
+                      License: <a href="http://www.gnu.org/licenses/old-licenses/gpl-2.0.html" class="ng-binding">
+                        GNU GPL v2</a>
+                    </li>
+                    <!-- ngIf: projectCtrl.project.contentLicenseName -->
+                    <!-- ngIf: projectCtrl.project.stars --><li ng-if="projectCtrl.project.stars" class="ng-binding ng-scope">
+                      1 stars
+                    </li><!-- end ngIf: projectCtrl.project.stars -->
+                    <li class="ng-binding">svn-based source control</li>
+                  </ul>
+                  <!-- ngIf: projectCtrl.project.labels.length > 0 --><p ng-if="projectCtrl.project.labels.length &gt; 0" class="ng-scope">
+                    Labels:
+                    <br>
+                    <!-- ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="https://code.google.com/archive/search?q=domain:code.google.com%20label:java"><span class="gca-label ng-binding">java</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="https://code.google.com/archive/search?q=domain:code.google.com%20label:mini-java"><span class="gca-label ng-binding">mini-java</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="https://code.google.com/archive/search?q=domain:code.google.com%20label:compiler"><span class="gca-label ng-binding">compiler</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index --><span ng-repeat="label in projectCtrl.project.labels track by $index" class="ng-scope">
+                      <a href="https://code.google.com/archive/search?q=domain:code.google.com%20label:javacc"><span class="gca-label ng-binding">javacc</span></a>
+                    </span><!-- end ngRepeat: label in projectCtrl.project.labels track by $index -->
+                  </p><!-- end ngIf: projectCtrl.project.labels.length > 0 -->
+                </div>
+              </div>
+            </div><!-- end ngIf: projectCtrl.project.found -->
+          </div><!-- end ngSwitchWhen: -->
+
+          <!-- Source -->
+          <!-- ngSwitchWhen: source -->
+
+          <!-- Issues -->
+          <!-- ngSwitchWhen: issues -->
+
+          <!-- Wikis -->
+          <!-- ngSwitchWhen: wikis -->
+
+          <!-- Downloads -->
+          <!-- ngSwitchWhen: downloads -->
+
+          <!-- Default -->
+          <!-- ngSwitchDefault: -->
+
+        <!-- end Switch -->
+        </div><!-- end ngIf: !projectCtrl.error -->
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+</div>
+    <noscript>
+      <p>The Google Code Archive requires JavaScript to be enabled in your browser.</p>
+    </noscript>
+
+    <div id="maia-signature"></div>
+    <div class="maia-footer" id="maia-footer">
+      <div id="maia-footer-local">
+      </div>
+      <div id="maia-footer-global">
+        <div class="maia-aux">
+          <ul>
+            <li>
+              <a href="https://www.google.com/">Google</a>
+            </li>
+            <li>
+              <a href="https://www.google.com/intl/en/about/">About Google</a>
+            </li>
+            <li>
+              <a href="https://www.google.com/intl/en/policies/privacy/">Privacy</a>
+            </li>
+            <li>
+              <a href="https://www.google.com/intl/en/policies/terms/">Terms</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <script src="index_files/maia.js"></script>
+  
+
+
+</body></html>

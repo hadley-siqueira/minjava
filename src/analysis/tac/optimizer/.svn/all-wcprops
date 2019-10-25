@@ -1,0 +1,23 @@
+K 25
+svn:wc:ra_dav:version-url
+V 65
+/svn/!svn/ver/43/branches/minjavac_ext/src/analysis/tac/optimizer
+END
+TAOptimizer.java
+K 25
+svn:wc:ra_dav:version-url
+V 82
+/svn/!svn/ver/50/branches/minjavac_ext/src/analysis/tac/optimizer/TAOptimizer.java
+END
+UsedLocalVarsVisitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 91
+/svn/!svn/ver/57/branches/minjavac_ext/src/analysis/tac/optimizer/UsedLocalVarsVisitor.java
+END
+DeadVarsVisitor.java
+K 25
+svn:wc:ra_dav:version-url
+V 86
+/svn/!svn/ver/63/branches/minjavac_ext/src/analysis/tac/optimizer/DeadVarsVisitor.java
+END

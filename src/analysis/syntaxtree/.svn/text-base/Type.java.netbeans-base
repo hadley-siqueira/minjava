@@ -1,0 +1,1 @@
+package analysis.syntaxtree;import analysis.visitors.TypeVisitor;import analysis.visitors.Visitor;public interface Type {  public void accept(Visitor v);  public Type accept(TypeVisitor v);}
